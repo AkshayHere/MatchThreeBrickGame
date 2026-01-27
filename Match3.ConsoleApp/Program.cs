@@ -73,10 +73,6 @@ class Program
             for (int x = 0; x < engine.Field.Width; x++)
             {
                 char ch = engine.Field.Get(x, y) ?? '.';
-
-                //if (engine.ActiveBrick != null &&
-                //    engine.ActiveBrick.Cells().Any(c => c.x == x && c.y == y))
-                //    ch = engine.ActiveBrick.Cells().First(c => c.x == x && c.y == y).symbol;
                 if (!engine.GameOver && engine.ActiveBrick != null)
                 {
                     var cell = engine.ActiveBrick.Cells()
