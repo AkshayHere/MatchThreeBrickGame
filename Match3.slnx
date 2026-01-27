@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="Match3.ConsoleApp/Match3.ConsoleApp.csproj" />
+  <Project Path="Match3.Core/Match3.Core.csproj" />
+  <Project Path="Match3.Tests/Match3.Tests.csproj" />
+</Solution>
