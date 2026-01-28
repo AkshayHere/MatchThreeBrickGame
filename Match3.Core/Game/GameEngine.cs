@@ -27,6 +27,10 @@ public class GameEngine
         SpawnBrick();
     }
 
+    /**
+     * Spawn new brick once the previous one is placed.
+     * Game over if otherwise.
+     */
     public void SpawnBrick()
     {
         if (_bricks.Count == 0)
@@ -51,6 +55,9 @@ public class GameEngine
     public bool CanPlace(Brick brick) =>
         brick.Cells().All(c => Field.Inside(c.x, c.y) && Field.Empty(c.x, c.y));
 
+    /**
+     * Move the position of the brick
+     */
     public void Move(int dx)
     {
         if (ActiveBrick == null) return;
@@ -60,6 +67,9 @@ public class GameEngine
             ActiveBrick.SetPosition(ActiveBrick.X - dx, ActiveBrick.Y);
     }
 
+    /**
+     * Place the brick at the bottom of the grid
+     */
     public void Drop()
     {
         if (GameOver || ActiveBrick == null) return;
@@ -101,6 +111,9 @@ public class GameEngine
         SpawnBrick();
     }
 
+    /**
+     * Identifies and removes matching characters
+     */
     private void RemoveMatches()
     {
         var matches = _matchService.FindMatches(Field);

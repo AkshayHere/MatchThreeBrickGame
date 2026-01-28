@@ -9,6 +9,7 @@ class Program
     {
         RunGame();
     }
+
     private static void RunGame()
     {
         Console.WriteLine("Welcome to Match-3 game!");
@@ -65,18 +66,21 @@ class Program
             Console.WriteLine("Thank you for playing Match-3!");
     }
 
+    /**
+     * Renders the game field and active brick to the console.
+     */
     static void Draw(GameEngine engine)
     {
         Console.Clear();
-        for (int y = 0; y < engine.Field.Height; y++)
+        for (int i = 0; i < engine.Field.Height; i++)
         {
-            for (int x = 0; x < engine.Field.Width; x++)
+            for (int j = 0; j < engine.Field.Width; j++)
             {
-                char ch = engine.Field.Get(x, y) ?? '.';
+                char ch = engine.Field.Get(j, i) ?? '.';
                 if (!engine.GameOver && engine.ActiveBrick != null)
                 {
                     var cell = engine.ActiveBrick.Cells()
-                        .FirstOrDefault(c => c.x == x && c.y == y);
+                        .FirstOrDefault(c => c.x == j && c.y == i);
 
                     if (cell.symbol != default)
                         ch = cell.symbol;

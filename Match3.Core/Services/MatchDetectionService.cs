@@ -4,6 +4,9 @@ namespace Match3.Core.Services;
 
 public class MatchDetectionService
 {
+    /*
+     * Identifies matching characters
+     **/
     public IEnumerable<(int x, int y)> FindMatches(Field field)
     {
         var matches = new HashSet<(int, int)>();
